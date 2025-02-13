@@ -1,0 +1,10 @@
+conda create -n maniskill python=3.12.9
+pip install sapien
+# Source
+git clone https://github.com/haosulab/ManiSkill.git
+cd ManiSkill && pip install -e .
+
+# remember to install a version of torch that is compatible with your system
+pip install torch torchvision torchaudio
+
+/home/zcm/miniconda3/envs/maniskill/bin/python /home/zcm/lightrobot/ManiSkill/mani_skill/agents/robots/SO100/test.py -r So100 -c"pd_joint_delta_pos" -b "gpu" --random-action 

@@ -73,11 +73,11 @@ class So100(BaseAgent):
         )
         gripper_pd_joint_pos = PDJointPosMimicControllerConfig(
             self.gripper_joint_names,
-            lower=-0.01,  # a trick to have force when the object is thin
-            upper=0.04,
-            stiffness=self.gripper_stiffness,
+            lower=-0.5,  # 增加下限以允许更大的开合范围
+            upper=1,   # 增加上限以允许更大的开合范围
+            stiffness=self.gripper_stiffness * 2,  # 增加刚度以提供更强的抓取力
             damping=self.gripper_damping,
-            force_limit=self.gripper_force_limit,
+            force_limit=self.gripper_force_limit * 1.5,  # 增加力限制以允许更强的抓取
         )
 
         controller_configs = dict(
@@ -104,6 +104,7 @@ class So100(BaseAgent):
         # 检查是否成功获取夹爪链接
         if self.finger1_link is None or self.finger2_link is None:
             raise ValueError("Failed to find Fixed_Jaw or Moving_Jaw links in the robot.")
+
 
     def is_grasping(self, object: Actor, min_force=0.5, max_angle=85):
         """Check if the robot is grasping an object

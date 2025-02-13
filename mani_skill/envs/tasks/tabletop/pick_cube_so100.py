@@ -15,7 +15,7 @@ from mani_skill.utils.scene_builder.table import TableSceneBuilder
 from mani_skill.utils.structs.pose import Pose
 
 
-@register_env("PickCubeSO100-v1", max_episode_steps=500)
+@register_env("PickCubeSO100-v1", max_episode_steps=50000)
 class PickCubeSO100Env(BaseEnv):
     """
     **Task Description:**
@@ -37,9 +37,22 @@ class PickCubeSO100Env(BaseEnv):
     cube_half_size = 0.02
     goal_thresh = 0.025
 
-    def __init__(self, *args, robot_uids="So100", robot_init_qpos_noise=0.02, **kwargs):
+    def __init__(self, *args, robot_uids="So100", robot_init_qpos_noise=0.02, cube_position=None, cube_rotation=None, **kwargs):
         self.robot_init_qpos_noise = robot_init_qpos_noise
+        self.cube_position = cube_position
+        self.cube_rotation = cube_rotation
         super().__init__(*args, robot_uids=robot_uids, **kwargs)
+
+    def reset(self, *args, **kwargs):
+        options = kwargs.get('options', {})
+        if options is None:
+            options = {}
+        if self.cube_position is not None:
+            options['cube_position'] = self.cube_position
+        if self.cube_rotation is not None:
+            options['cube_rotation'] = self.cube_rotation
+        kwargs['options'] = options
+        return super().reset(*args, **kwargs)
 
     @property
     def _default_sensor_configs(self):
@@ -75,6 +88,7 @@ class PickCubeSO100Env(BaseEnv):
             color=[1, 0, 0, 1],
             name="cube",
             initial_pose=sapien.Pose(p=[0, 0, self.cube_half_size]),
+
         )
         self.goal_site = actors.build_sphere(
             self.scene,
@@ -92,9 +106,15 @@ class PickCubeSO100Env(BaseEnv):
             b = len(env_idx)
             self.table_scene.initialize(env_idx)
             xyz = torch.zeros((b, 3))
-            xyz[:, :2] = torch.rand((b, 2)) * 0.2 - 0.1
+            if 'cube_position' in options:
+                xyz[:, :2] = torch.tensor(options['cube_position'][:2]).repeat(b, 1)
+            else:
+                xyz[:, :2] = torch.rand((b, 2)) * 0.2 - 0.1
             xyz[:, 2] = self.cube_half_size
-            qs = randomization.random_quaternions(b, lock_x=True, lock_y=True)
+            if 'cube_rotation' in options:
+                qs = torch.tensor(options['cube_rotation']).repeat(b, 1)
+            else:
+                qs = randomization.random_quaternions(b, lock_x=True, lock_y=True)
             self.cube.set_pose(Pose.create_from_pq(xyz, qs))
 
             goal_xyz = torch.zeros((b, 3))
