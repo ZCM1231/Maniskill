@@ -86,6 +86,7 @@ class PickCubeSO100Env(BaseEnv):
             self, robot_init_qpos_noise=self.robot_init_qpos_noise
         )
         self.table_scene.build()
+        
         self.cube = actors.build_colorful_cube(
             self.scene,
             half_size=self.cube_half_size,
@@ -103,6 +104,18 @@ class PickCubeSO100Env(BaseEnv):
             initial_pose=sapien.Pose(),
         )
         self._hidden_objects.append(self.goal_site)
+
+        # Add pizza box
+        pizza_box_path = "/home/zcm/lightrobot/ManiSkill/mani_skill/utils/scene_builder/table/assets/hhz.glb"
+        self.pizza_box = actors.build_actor(
+            self.scene,
+            filename=pizza_box_path,
+            name="pizza_box",
+            scale=[0.001, 0.001, 0.001],
+            static=True,
+            visual_only=True,
+            initial_pose=sapien.Pose(p=[-0.4, 0.0, 0.01],q=[0,0, 0.70710678, 0.70710678]),  # Adjust position as needed
+        )
 
     def _initialize_episode(self, env_idx: torch.Tensor, options: dict):
         with torch.device(self.device):

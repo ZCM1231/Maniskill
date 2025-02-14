@@ -5,6 +5,9 @@ import numpy as np
 import torch
 from lerobot.feetech_arm import feetech_arm
 import json
+control_freq = 30  # Hz
+control_period = 1.0 / control_freq
+
 def convert_step_to_rad(steps):
     """Convert motor steps to rad.
     4096 steps = 6.28 rad (full rotation)
@@ -40,7 +43,7 @@ print("Hardware initialized")
 joint_offset_real = load_joint_offsets()
 print("Joint offsets (steps):", joint_offset_real)
 # Initialize joint offsets
-joint_offset_sim = [3.0280669, 7.147486, -1.1413924, 3.1595317, 5.025189, 0.6514962]
+joint_offset_sim = [3.0280669, 7.147486, -1.0413924, 3.1595317, 5.025189, 0.6514962]
 # [0, -2.14, 1.83, -0.40, 1.83, -0.1]-[-3.0280669 -9.087486   2.9713924 -3.5595317 -3.195189  -1.2514962]
 joint_offset_real = load_joint_offsets()
 print(joint_offset_real)
@@ -66,7 +69,6 @@ while not done:  # 检查环境是否完成
     print(f"延时时间: {elapsed_time:.6f} 秒") 
     
     print(f'Action: {action}')
-    time.sleep(0.05)
     obs, reward, terminated, truncated, info = env.step(action)
     
     # 打印观察空间和动作空间的信息
@@ -82,4 +84,7 @@ while not done:  # 检查环境是否完成
         truncated = truncated.cpu().numpy()
     done = terminated or truncated  # 使用逻辑或操作
     env.render()  # a display is required to render
+    elapsed = time.time() - start_time
+    if elapsed < control_period:
+        time.sleep(control_period - elapsed)
 env.close()

@@ -2,7 +2,7 @@
 Common utilities for adding primitive prebuilt shapes to a scene
 """
 
-from typing import Optional, Union
+from typing import Optional, Union, List, Tuple
 
 import numpy as np
 import sapien
@@ -316,4 +316,25 @@ def build_colorful_cube(
             base_color=color,
         ),
     )
+    return _build_by_type(builder, name, body_type, scene_idxs, initial_pose)
+
+
+def build_actor(
+    scene: ManiSkillScene,
+    filename: str,
+    name: str,
+    scale: Optional[Union[float, List[float]]] = None,
+    static: bool = False,
+    visual_only: bool = False,
+    scene_idxs: Optional[Array] = None,
+    initial_pose: Optional[Union[Pose, sapien.Pose]] = None,
+):
+    builder = scene.create_actor_builder()
+    builder.add_visual_from_file(filename, scale=scale)
+    
+    if not visual_only:
+        # Note: add_collision_from_file is not available, so we'll skip this for now
+        pass
+    
+    body_type = "static" if static else "dynamic"
     return _build_by_type(builder, name, body_type, scene_idxs, initial_pose)
