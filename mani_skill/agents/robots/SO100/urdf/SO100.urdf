@@ -288,11 +288,10 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+        xyz="0.03 -0.05 0"
+        rpy="0 0 1.57" />
       <geometry>
-        <mesh
-          filename="package://SO100/meshes/Fixed_Jaw.STL" />
+        <box size="0.12 0.02 0.03"/>
       </geometry>
     </collision>
   </link>
