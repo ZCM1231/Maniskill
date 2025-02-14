@@ -27,24 +27,24 @@ class So100(BaseAgent):
     ]
     urdf_config = dict(
         _materials=dict(
-            gripper=dict(static_friction=2.0, dynamic_friction=2.0, restitution=0.0)
+            gripper=dict(static_friction=2.0, dynamic_friction=2.0, restitution=0)
         ),
         link=dict(
-            panda_leftfinger=dict(
-                material="gripper", patch_radius=0.1, min_patch_radius=0.1
+            Fixed_Jaw=dict(
+                material="gripper", patch_radius=5, min_patch_radius=0.01
             ),
-            panda_rightfinger=dict(
-                material="gripper", patch_radius=0.1, min_patch_radius=0.1
-            ),
-        ),
+            Moving_Jaw=dict(
+                material="gripper", patch_radius=5, min_patch_radius=0.01
+            )
+        )
     )
     arm_stiffness = 1e3
     arm_damping = 1e2
     arm_force_limit = 100
 
-    gripper_stiffness = 1e3
+    gripper_stiffness = 1e4
     gripper_damping = 1e2
-    gripper_force_limit = 100
+    gripper_force_limit = 200
     def is_static(self, threshold):
         """
         Check if the robot is static by comparing joint velocities with a threshold.

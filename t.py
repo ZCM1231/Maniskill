@@ -25,7 +25,7 @@ env = gym.make(
     obs_mode="state",  # there is also "state_dict", "rgbd", ...
     control_mode="pd_joint_pos",  # there is also "pd_joint_delta_pos", ...
     render_mode="human",
-    cube_position=[-0.4, 0.1],  # 设置立方体的x和y坐标
+    cube_position=[-0.45, 0.2],  # 设置立方体的x和y坐标
     cube_rotation=[1, 0, 0, 0]  # 设置立方体的旋转(这是一个四元数,表示无旋转)
 )
 print("Observation space", env.observation_space)
@@ -40,7 +40,7 @@ print("Hardware initialized")
 joint_offset_real = load_joint_offsets()
 print("Joint offsets (steps):", joint_offset_real)
 # Initialize joint offsets
-joint_offset_sim = [3.0280669, 7.147486, -1.1413924, 3.1595317, 5.025189, 0.9514962]
+joint_offset_sim = [3.0280669, 7.147486, -1.1413924, 3.1595317, 5.025189, 0.6514962]
 # [0, -2.14, 1.83, -0.40, 1.83, -0.1]-[-3.0280669 -9.087486   2.9713924 -3.5595317 -3.195189  -1.2514962]
 joint_offset_real = load_joint_offsets()
 print(joint_offset_real)
@@ -74,7 +74,7 @@ while not done:  # 检查环境是否完成
     print("Action space shape:", env.action_space.shape)
     print("Reward:", reward)
     print("Info:", info)
-
+    
     # 检查是否为 PyTorch 张量,如果是则先移到 CPU 再转换为 numpy 数组
     if isinstance(terminated, torch.Tensor):
         terminated = terminated.cpu().numpy()

@@ -34,7 +34,7 @@ class PickCubeSO100Env(BaseEnv):
 
     SUPPORTED_ROBOTS = ["So100"]
     agent: So100
-    cube_half_size = 0.02
+    cube_half_size = 0.014
     goal_thresh = 0.025
 
     def __init__(self, *args, robot_uids="So100", robot_init_qpos_noise=0.02, cube_position=None, cube_rotation=None, **kwargs):
@@ -57,12 +57,16 @@ class PickCubeSO100Env(BaseEnv):
     @property
     def _default_sensor_configs(self):
         pose = sapien_utils.look_at(eye=[-0.6, 0, 0.3], target=[-0.35, 0, 0])
-        return [CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
+        pose2 = sapien_utils.look_at([-0.1, 0.0, 0.3], [-0.35, 0.0, 0])
+        pose3 = sapien_utils.look_at([-0.35,-0.2, 0.2], [-0.35, 0.3, 0])
+        return [CameraConfig("c_camera", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera", pose2, 512, 512, 1, 0.01, 100),CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
 
     @property
     def _default_human_render_camera_configs(self):
         pose = sapien_utils.look_at([0.6, 0.7, 0.6], [0.0, 0.0, 0.35])
         return CameraConfig("render_camera", pose, 512, 512, 1, 0.01, 100)
+    
+
 
     def _load_agent(self, options: dict):
         # 定义位置
