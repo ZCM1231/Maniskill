@@ -302,9 +302,9 @@ def build_colorful_cube(
     builder = scene.create_actor_builder()
 
     if add_collision:
-        builder._mass = 0.1
+        builder._mass = 0.05  # Reduced mass to make it lighter
         cube_material = sapien.pysapien.physx.PhysxMaterial(
-            static_friction=5, dynamic_friction=3, restitution=0
+            static_friction=5, dynamic_friction=5, restitution=0.5  # Reduced friction and added some restitution
         )
         builder.add_box_collision(
             half_size=[half_size] * 3,

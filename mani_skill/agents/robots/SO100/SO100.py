@@ -31,10 +31,10 @@ class So100(BaseAgent):
         ),
         link=dict(
             Fixed_Jaw=dict(
-                material="gripper", patch_radius=5, min_patch_radius=0.01
+                material="gripper", patch_radius=0.05, min_patch_radius=0.01
             ),
             Moving_Jaw=dict(
-                material="gripper", patch_radius=5, min_patch_radius=0.01
+                material="gripper", patch_radius=0.05, min_patch_radius=0.01
             )
         )
     )

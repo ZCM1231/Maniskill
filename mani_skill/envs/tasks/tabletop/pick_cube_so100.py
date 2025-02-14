@@ -34,7 +34,7 @@ class PickCubeSO100Env(BaseEnv):
 
     SUPPORTED_ROBOTS = ["So100"]
     agent: So100
-    cube_half_size = 0.014
+    cube_half_size = 0.02
     goal_thresh = 0.025
 
     def __init__(self, *args, robot_uids="So100", robot_init_qpos_noise=0.02, cube_position=None, cube_rotation=None, **kwargs):
@@ -86,13 +86,12 @@ class PickCubeSO100Env(BaseEnv):
             self, robot_init_qpos_noise=self.robot_init_qpos_noise
         )
         self.table_scene.build()
-        self.cube = actors.build_cube(
+        self.cube = actors.build_colorful_cube(
             self.scene,
             half_size=self.cube_half_size,
             color=[1, 0, 0, 1],
             name="cube",
             initial_pose=sapien.Pose(p=[0, 0, self.cube_half_size]),
-
         )
         self.goal_site = actors.build_sphere(
             self.scene,
