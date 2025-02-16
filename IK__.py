@@ -1,22 +1,13 @@
-import gymnasium as gym
-import mani_skill.envs
-import time
-import numpy as np
-from scipy.spatial.transform import Rotation as R
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # 机器人关节角度限制（根据URDF）
-# control_qlimit = np.array([
-#     [-2.8973, -1.7628, -2.8973, -3.0718, -2.8973, -0.0175, -2.8973],
-#     [ 2.8973,  1.7628,  2.8973, -0.0698,  2.8973,  3.7525,  2.8973]
-# ])
-
 control_qlimit = np.array([
-    [-3.14, -3.14, -3.14, -3.14, -3.14, -3.14, -3.14],
-    [3.14, 3.14, 3.14, 3.14, 3.14, 3.14, 3.14],
+    [-2.8973, -1.7628, -2.8973, -3.0718, -2.8973, -0.0175, -2.8973],
+    [ 2.8973,  1.7628,  2.8973, -0.0698,  2.8973,  3.7525,  2.8973]
 ])
+
 # 初始关节角度
 initial_theta = np.array([0, -np.pi/4, 0, -3*np.pi/4, 0, np.pi/2, np.pi/4])
 current_theta = initial_theta.copy()
@@ -165,65 +156,27 @@ def plot_robot(theta):
     plt.draw()
     plt.pause(0.001)
 
-# if __name__ == "__main__":
-#     # 创建图形窗口
-#     plt.ion()
-#     fig = plt.figure()
-#     ax = fig.add_subplot(111, projection='3d')
+if __name__ == "__main__":
+    # 创建图形窗口
+    plt.ion()
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
 
-#     # 计算初始位姿
-#     current_T, _, _ = FK(initial_theta)
+    # 计算初始位姿
+    current_T, _, _ = FK(initial_theta)
     
-#     # 设置目标位姿（这里可以根据需要修改）
-#     desired_T = current_T.copy()
-#     desired_T[0:3, 3] += np.array([0.1, 0.1, 0.1])  # 移动末端执行器
+    # 设置目标位姿（这里可以根据需要修改）
+    desired_T = current_T.copy()
+    desired_T[0:3, 3] += np.array([0.1, 0.1, 0.1])  # 移动末端执行器
 
-#     while True:
-#         # 计算逆运动学
-#         solution_theta = IK(desired_T, current_theta)
-#         if solution_theta is not None:
-#             # 更新关节角度
-#             current_theta = solution_theta
-#             # 绘制机器人
-#             plot_robot(current_theta)
-#         else:
-#             print("Unable to solve the inverse kinematics problem.")
-#         plt.pause(0.05)
-
-env = gym.make(
-    "PickCube-v1", # there are more tasks e.g. "PushCube-v1", "PegInsertionSide-v1", ...
-    num_envs=1,
-    obs_mode="state", # there is also "state_dict", "rgbd", ...
-    control_mode="pd_joint_pos", # there is also "pd_joint_delta_pos", ...
-    render_mode="human"
-)
-print("Observation space", env.observation_space)
-print("Action space", env.action_space)
-
-obs, _ = env.reset(seed=0) # reset with a seed for determinism
-done = False
-current_T, _, _ = FK(initial_theta)
-np.random.seed(1)
-
-desired_T = current_T.copy()
-desired_T[0:3, 3] += np.array([0, 0, 0.00])  # 移动末端执行器
-while not done:
-    # desired_T = current_T.copy()
-    # print(f'{desired_T}dessssireeee_old')
-    # desired_T[0:3, 3] += np.array([0.001, 0., 0.])  # 移动末端执行器
-    # print(f'{desired_T}dessssireeee_new')
-    solution_theta = IK(desired_T, current_theta)
-    if solution_theta is not None:
-        # 构造完整的动作向量：7个关节角度 + 1个夹持器控制值
-        action = np.zeros(8)
-        action[:7] =solution_theta   # 前7个值为关节角度
-        action[7] = 0.5  # 第8个值为夹持器控制
-        action = np.array(action)
-        print(action)
-   
-
-    obs, reward, terminated, truncated, info = env.step(action)
-    done = terminated or truncated
-    env.render()  # a display is required to render
-    
-env.close()
+    while True:
+        # 计算逆运动学
+        solution_theta = IK(desired_T, current_theta)
+        if solution_theta is not None:
+            # 更新关节角度
+            current_theta = solution_theta
+            # 绘制机器人
+            plot_robot(current_theta)
+        else:
+            print("Unable to solve the inverse kinematics problem.")
+        plt.pause(0.05)

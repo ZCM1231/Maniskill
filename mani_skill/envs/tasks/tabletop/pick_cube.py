@@ -15,7 +15,7 @@ from mani_skill.utils.scene_builder.table import TableSceneBuilder
 from mani_skill.utils.structs.pose import Pose
 
 
-@register_env("PickCube-v1", max_episode_steps=50)
+@register_env("PickCube-v1", max_episode_steps=5000)
 class PickCubeEnv(BaseEnv):
     """
     **Task Description:**
@@ -47,9 +47,12 @@ class PickCubeEnv(BaseEnv):
 
     @property
     def _default_sensor_configs(self):
-        pose = sapien_utils.look_at(eye=[0.3, 0, 0.6], target=[-0.1, 0, 0.1])
-        return [CameraConfig("base_camera", pose, 128, 128, np.pi / 2, 0.01, 100)]
-
+        pose = sapien_utils.look_at(eye=[-0.6, 0, 0.3], target=[-0.35, 0, 0])
+        pose2 = sapien_utils.look_at([-0.1, 0.0, 0.3], [-0.35, 0.0, 0])
+        pose3 = sapien_utils.look_at([-0.35,-0.2, 0.2], [-0.35, 0.3, 0])
+        
+        return [CameraConfig("c_camera", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera", pose2, 512, 512, 1, 0.01, 100),CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
+    
     @property
     def _default_human_render_camera_configs(self):
         pose = sapien_utils.look_at([0.6, 0.7, 0.6], [0.0, 0.0, 0.35])

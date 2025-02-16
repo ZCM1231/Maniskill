@@ -6,12 +6,12 @@ class PandaIK:
     def __init__(self):
         # DH parameters for Panda robot arm
         self.dh_params = {
-            'd': [0.333, 0, 0.316, 0, 0.384, 0, 0],
+            'd' : [0.333, 0.0, 0.316, 0.0, 0.384, 0.0, 0.107],
             'a': [0, 0, 0, 0.0825, -0.0825, 0, 0.088],
             'alpha': [0, -np.pi/2, np.pi/2, np.pi/2, -np.pi/2, np.pi/2, np.pi/2],
-            'offset': [0, 0, 0, 0, 0, 0, 0]
+            'offset': [0.0, -np.pi/4, 0.0, -3*np.pi/4, 0.0, np.pi/2, np.pi/4]
         }
-        
+
         # Joint limits for Panda arm in radians
         self.joint_limits = {
             'lower': np.array([-2.8973, -1.7628, -2.8973, -3.0718, -2.8973, -0.0175, -2.8973]),
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     panda = PandaIK()
     
     # Test a reachable target pose
-    target_position = np.array([0.4, 0.0, 0.5])  # In workspace
+    target_position = np.array([0.0, 0.0, 0.25])  # In workspace
     target_rotation = R.from_euler('xyz', [0, np.pi/2, 0]).as_matrix()  # Arbitrary orientation
     
     # Run inverse kinematics solver
