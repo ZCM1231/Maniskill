@@ -18,21 +18,21 @@ import mani_skill.examples.benchmarking.envs # import benchmark env code
 BENCHMARK_ENVS = ["FrankaPickCubeBenchmark-v1", "CartpoleBalanceBenchmark-v1", "FrankaMoveBenchmark-v1"]
 @dataclass
 class Args:
-    env_id: Annotated[str, tyro.conf.arg(aliases=["-e"])] = "PickCube-v1"
+    env_id: Annotated[str, tyro.conf.arg(aliases=["-e"])] = "CartpoleBalanceBenchmark-v1"
     obs_mode: Annotated[str, tyro.conf.arg(aliases=["-o"])] = "state"
     control_mode: Annotated[str, tyro.conf.arg(aliases=["-c"])] = "pd_joint_delta_pos"
-    num_envs: Annotated[int, tyro.conf.arg(aliases=["-n"])] = 1024
+    num_envs: Annotated[int, tyro.conf.arg(aliases=["-n"])] = 4
     cpu_sim: bool = False
     """Whether to use the CPU or GPU simulation"""
     seed: int = 0
     save_example_image: bool = False
     control_freq: Optional[int] = 60
     sim_freq: Optional[int] = 120
-    num_cams: Optional[int] = None
+    num_cams: Optional[int] = 3
     """Number of cameras. Only used by benchmark environments"""
-    cam_width: Optional[int] = None
+    cam_width: Optional[int] = 320
     """Width of cameras. Only used by benchmark environments"""
-    cam_height: Optional[int] = None
+    cam_height: Optional[int] = 180
     """Height of cameras. Only used by benchmark environments"""
     render_mode: str = "rgb_array"
     """Which set of cameras/sensors to render for video saving. 'cameras' value will save a video showing all sensor/camera data in the observation, e.g. rgb and depth. 'rgb_array' value will show a higher quality render of the environment running."""

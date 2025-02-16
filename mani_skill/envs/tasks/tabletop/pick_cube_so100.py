@@ -15,7 +15,7 @@ from mani_skill.utils.scene_builder.table import TableSceneBuilder
 from mani_skill.utils.structs.pose import Pose
 
 
-@register_env("PickCubeSO100-v1", max_episode_steps=50000)
+@register_env("PickCubeSO100-v1", max_episode_steps=500)
 class PickCubeSO100Env(BaseEnv):
     """
     **Task Description:**
@@ -55,11 +55,31 @@ class PickCubeSO100Env(BaseEnv):
         return super().reset(*args, **kwargs)
 
     @property
+    # def _default_sensor_configs(self):
+    #     pose = sapien_utils.look_at(eye=[-0.6, 0, 0.3], target=[-0.35, 0, 0])
+    #     pose2 = sapien_utils.look_at([-0.1, 0.0, 0.3], [-0.35, 0.0, 0])
+    #     pose3 = sapien_utils.look_at([-0.35,-0.2, 0.2], [-0.35, 0.3, 0])
+    #     return [CameraConfig("c_camera", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera", pose2, 512, 512, 1, 0.01, 100),CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
+
     def _default_sensor_configs(self):
         pose = sapien_utils.look_at(eye=[-0.6, 0, 0.3], target=[-0.35, 0, 0])
         pose2 = sapien_utils.look_at([-0.1, 0.0, 0.3], [-0.35, 0.0, 0])
         pose3 = sapien_utils.look_at([-0.35,-0.2, 0.2], [-0.35, 0.3, 0])
+        
         return [CameraConfig("c_camera", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera", pose2, 512, 512, 1, 0.01, 100),CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
+    
+        # return [
+        #     CameraConfig("c_camera", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera", pose2, 512, 512, 1, 0.01, 100),
+        #     CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100),CameraConfig("c_camera1", pose3, 512, 512, 1, 0.01, 100),
+        #     CameraConfig("cube_camera1", pose2, 512, 512, 1, 0.01, 100),CameraConfig("base_camera1", pose, 480, 640, np.pi / 2, 0.01, 100),
+        #     CameraConfig("c_camera2", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera2", pose2, 512, 512, 1, 0.01, 100),
+        #     CameraConfig("c_camera2", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera3", pose2, 512, 512, 1, 0.01, 100),
+        #     CameraConfig("base_camera3", pose, 480, 640, np.pi / 2, 0.01, 100),CameraConfig("c_camera3", pose3, 512, 512, 1, 0.01, 100),
+        #     CameraConfig("cube_camera5", pose2, 512, 512, 1, 0.01, 100),CameraConfig("base_camera4", pose, 480, 640, np.pi / 2, 0.01, 100),
+        #     CameraConfig("c_camera7", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera7", pose2, 512, 512, 1, 0.01, 100),
+        #     CameraConfig("c_camera6", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera8", pose2, 512, 512, 1, 0.01, 100),
+
+        #     ]
 
     @property
     def _default_human_render_camera_configs(self):

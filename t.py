@@ -5,86 +5,119 @@ import numpy as np
 import torch
 from lerobot.feetech_arm import feetech_arm
 import json
+import os
+import cv2
+from datetime import datetime
+
+# 设置控制频率和保存路径
 control_freq = 30  # Hz
 control_period = 1.0 / control_freq
+save_dir = "/home/zcm/Pictures"  # 定义图像保存目录
+os.makedirs(save_dir, exist_ok=True)  # 确保目录存在
+
+def save_camera_images(obs, folder_name="capture"):
+    """
+    保存相机图像到指定目录
+    参数:
+        obs - 从环境获取的观测数据
+        folder_name - 每次捕获创建的子目录名称前缀
+    """    
+    # 创建带时间戳的唯一子目录
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    capture_dir = os.path.join(save_dir, f"{folder_name}_{timestamp}")
+    os.makedirs(capture_dir, exist_ok=True)
+    
+    # 遍历所有相机
+    for cam_name in ['c_camera', 'cube_camera', 'base_camera', 'hand_camera']:
+        try:
+            # 获取RGB图像张量 (形状为 [1, H, W, 3])
+            rgb_tensor = obs['sensor_data'][cam_name]['rgb']
+            
+            # 转换为numpy数组并去掉批次维度
+            rgb_array = rgb_tensor.squeeze(0).cpu().numpy()
+            
+            # 转换为OpenCV所需的BGR格式
+            bgr_array = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2BGR)
+            
+            # 构造文件名并保存
+            filename = os.path.join(capture_dir, f"{cam_name}.png")
+            cv2.imwrite(filename, bgr_array)
+            
+        except KeyError as e:
+            print(f"Warning: Cam {cam_name} not found in observation - {e}")
+        except Exception as e:
+            print(f"Error saving {cam_name} image: {str(e)}")
 
 def convert_step_to_rad(steps):
-    """Convert motor steps to rad.
-    4096 steps = 6.28 rad (full rotation)
-    """
+    """Convert motor steps to rad."""
     return steps * (6.28 / 4096.0)
 
 def load_joint_offsets():
-    """Load joint offsets from calibration file and convert to degrees."""
+    """Load joint offsets from calibration file."""
     with open("/home/zcm/lightrobot/ManiSkill/lerobot/right_follower.json", 'r') as f:
         calibration = json.load(f)
-    # Convert start positions from steps to degrees
-    start_pos_deg = [convert_step_to_rad(pos) for pos in calibration['start_pos']]
-    return start_pos_deg
+    return [convert_step_to_rad(pos) for pos in calibration['start_pos']]
 
+# 初始化环境
 env = gym.make(
-    "PickCubeSO100-v1",  # there are more tasks e.g. "PushCube-v1", "PegInsertionSide-v1", ...
+    "PickCubeSO100-v1",
     num_envs=1,
-    obs_mode="state",  # there is also "state_dict", "rgbd", ...
-    control_mode="pd_joint_pos",  # there is also "pd_joint_delta_pos", ...
+    obs_mode="rgbd",  # 确保包含相机数据
+    control_mode="pd_joint_pos",
     render_mode="human",
-    cube_position=[-0.45, 0.2],  # 设置立方体的x和y坐标
-    cube_rotation=[1, 0, 0, 0]  # 设置立方体的旋转(这是一个四元数,表示无旋转)
+    human_render_camera_configs=dict(shader_pack="rt"),
+    sensor_configs=dict(shader_pack="rt"),  # 为所有传感器相机设置"rt"着色器包
+    cube_position=[-0.45, 0.2],
+    cube_rotation=[1, 0, 0, 0]
 )
-print("Observation space", env.observation_space)
-print("Action space", env.action_space)
+print("Environment initialized")
 
-obs, _ = env.reset(seed=1)  # reset with a seed for determinism
-done = False
-arm = feetech_arm(driver_port="/dev/ttyACM0", calibration_file="/home/zcm/lightrobot/ManiSkill/lerobot/right_follower.json")
-print("Hardware initialized")
+# 硬件初始化
+arm = feetech_arm(
+    driver_port="/dev/ttyACM0",
+    calibration_file="/home/zcm/lightrobot/ManiSkill/lerobot/right_follower.json"
+)
+print("Hardware connection established")
 
-# Load joint offsets from calibration
+# 载入标定参数
 joint_offset_real = load_joint_offsets()
-print("Joint offsets (steps):", joint_offset_real)
-# Initialize joint offsets
 joint_offset_sim = [3.0280669, 7.147486, -1.0413924, 3.1595317, 5.025189, 0.6514962]
-# [0, -2.14, 1.83, -0.40, 1.83, -0.1]-[-3.0280669 -9.087486   2.9713924 -3.5595317 -3.195189  -1.2514962]
-joint_offset_real = load_joint_offsets()
-print(joint_offset_real)
-# print(joint_offset_sim)
-done = False
-while not done:  # 检查环境是否完成
-    start_time = time.time() 
-    # Read joint positions from hardware
-    joint_positions = arm.feedback()
-    # Convert joint positions considering offsets
-    joint_positions = np.array(joint_positions)
-    
-    # Apply offsets
-    for i in range(len(joint_positions)):
-        joint_positions[i] = joint_positions[i]-joint_offset_real[i]+joint_offset_sim[i]              # + joint_offset_sim[i]
-    
-    # 更新关节位置,包括夹爪
-    action = joint_positions
-    
 
-    end_time = time.time() 
-    elapsed_time = end_time - start_time  
-    print(f"延时时间: {elapsed_time:.6f} 秒") 
+# 主控制循环
+obs, _ = env.reset(seed=1)
+done = False
+
+while not done:
+    cycle_start = time.time()
     
-    print(f'Action: {action}')
+    # 1. 读取硬件关节位置
+    raw_joints = np.array(arm.feedback())
+    
+    # 2. 应用标定转换
+    calibrated_joints = raw_joints - joint_offset_real + joint_offset_sim
+    
+    # 3. 构建动作向量
+    action = torch.tensor(calibrated_joints, dtype=torch.float32)  # 转换为PyTorch张量
+    
+    # 4. 执行环境步进
     obs, reward, terminated, truncated, info = env.step(action)
     
-    # 打印观察空间和动作空间的信息
-    print("Observation space shape:", obs.shape)
-    print("Action space shape:", env.action_space.shape)
-    print("Reward:", reward)
-    print("Info:", info)
+    # 5. 保存相机图像 (新增部分)
+    save_camera_images(obs, "step_capture")
     
-    # 检查是否为 PyTorch 张量,如果是则先移到 CPU 再转换为 numpy 数组
-    if isinstance(terminated, torch.Tensor):
-        terminated = terminated.cpu().numpy()
-    if isinstance(truncated, torch.Tensor):
-        truncated = truncated.cpu().numpy()
-    done = terminated or truncated  # 使用逻辑或操作
+    # 6. 打印调试信息
+    print(f"Action: {action.numpy()}")
+    print(f"Info: {info}")
+    
+    # 7. 更新终止状态
+    done = terminated or truncated
+    
+    # 8. 频率控制
     env.render()  # a display is required to render
-    elapsed = time.time() - start_time
+    elapsed = time.time() - cycle_start
     if elapsed < control_period:
         time.sleep(control_period - elapsed)
+
+# 关闭资源
 env.close()
+print("All resources released")

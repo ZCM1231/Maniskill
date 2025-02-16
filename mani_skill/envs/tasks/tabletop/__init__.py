@@ -17,3 +17,4 @@ from .roll_ball import RollBallEnv
 from .push_t import PushTEnv
 from .pull_cube_tool import PullCubeToolEnv
 from .pick_cube_so100 import PickCubeSO100Env
+from .simple_cube_env import SimpleCubeEnv

@@ -1,0 +1,48 @@
+import gymnasium as gym
+import time
+import mani_skill
+
+def create_env(shader_pack):
+    return gym.make(
+        "SimpleCubeEnv-v0",
+        num_envs=1,
+        obs_mode="rgbd",
+        control_mode="pd_joint_pos",
+        human_render_camera_configs=dict(shader_pack=shader_pack),
+        sensor_configs=dict(shader_pack=shader_pack),
+        render_mode="human",
+    )
+# def create_env(shader_pack):
+#     return gym.make(
+#         "PickCubeSO100-v1",
+#         num_envs=1,
+#         obs_mode="rgbd",
+#         control_mode="pd_joint_pos",
+#         human_render_camera_configs=dict(shader_pack=shader_pack),
+#         sensor_configs=dict(shader_pack=shader_pack),
+#         render_mode="human",
+#         cube_position=[-0.45, 0.2],
+#         cube_rotation=[1, 0, 0, 0]
+#     )
+def measure_render_speed(env, num_frames=100):
+    start_time = time.time()
+    for _ in range(num_frames):
+        env.get_obs()
+    end_time = time.time()
+    return num_frames / (end_time - start_time)
+
+def main():
+    shader_packs = ["default", "rt", "rt-med", "rt-fast", "minimal"]
+    
+    print("Observation rendering speed comparison:")
+    print("-" * 40)
+    for shader in shader_packs:
+        env = create_env(shader)
+        obs, _ = env.reset(seed=1)
+        fps = measure_render_speed(env)
+        print(f"{shader:10} rendering: {fps:.2f} FPS")
+        env.close()
+    print("-" * 40)
+
+if __name__ == "__main__":
+    main()
