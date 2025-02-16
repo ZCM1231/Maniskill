@@ -38,6 +38,7 @@ class So100(BaseAgent):
             )
         )
     )
+    
     arm_stiffness = 1e3
     arm_damping = 1e2
     arm_force_limit = 100

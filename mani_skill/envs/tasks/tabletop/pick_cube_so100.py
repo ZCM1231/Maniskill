@@ -58,8 +58,11 @@ class PickCubeSO100Env_v(BaseEnv):
     def _default_human_render_camera_configs(self):
         pose = sapien_utils.look_at(eye=[-0.6, .2, 0.5], target=[-0.35, 0.2, 0])
         return CameraConfig("render_camera", pose, 512, 512, 1, 0.01, 100)
+    @property
+    def _default_sensor_configs(self):
+        pose = sapien_utils.look_at(eye=[-0.6, .2, 0.5], target=[-0.35, 0.2, 0])
+        return [CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
     
-
 
     def _load_agent(self, options: dict):
         # 定义位置

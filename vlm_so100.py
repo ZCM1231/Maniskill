@@ -8,7 +8,10 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import threading
 from pynput import keyboard
-
+import os
+import torch
+from torchvision.utils import save_image
+save_dir = "/home/zcm/Pictures"  # 定义图像保存目录
 # Initialize a lock for thread synchronization
 lock = threading.Lock()
 
@@ -466,8 +469,9 @@ listener.start()
 env = gym.make(
     "PickCubeSO100-vlm", # there are more tasks e.g. "PushCube-v1", "PegInsertionSide-v1", ...
     num_envs=1,
-    obs_mode="state", # there is also "state_dict", "rgbd", ...
+    obs_mode="rgbd", # there is also "state_dict", "rgbd", ...
     control_mode="pd_joint_pos", # there is also "pd_joint_delta_pos", ...
+    sensor_configs=dict(shader_pack="rt"),  # 为所有传感器相机设置"rt"着色器包
     render_mode="human",
     cube_position=[-0.45, 0.4],
     cube_rotation=[1, 0, 0, 0]
@@ -497,7 +501,7 @@ if __name__ == "__main__":
                 # Update the joint angles
                 current_theta = solution_theta
                 # Plot the robot
-                plot_robot_arm(current_theta)
+                # plot_robot_arm(current_theta)
             else:
                 print("Unable to solve the inverse kinematics problem.")
            
@@ -507,9 +511,42 @@ if __name__ == "__main__":
                 action[:5] =solution_theta   # 前7个值为关节角度
                 action[5] = 0.5  # 第8个值为夹持器控制
                 action = np.array(action)
-                print(action)
+                # print(action)
             obs, reward, terminated, truncated, info = env.step(action)
             done = terminated or truncated
             env.render()  # a display is required to render
+            print(obs)
+            rgb_image = obs['sensor_data']['base_camera']['rgb']
+            # 由于图像数据通常为 (C, H, W, 3) 格式（C 为图像数量，这里通常为 1），如果 C 为 1 则去掉该维度
+            if rgb_image.ndim == 4 and rgb_image.shape[0] == 1:
+                rgb_image = rgb_image.squeeze(0)
+            # 将数据类型转换为 float 并归一化到 [0, 1] 范围
+            rgb_image = rgb_image.float() / 255.0
+            # 调整通道顺序，从 (H, W, C) 到 (C, H, W)
+            rgb_image = rgb_image.permute(2, 0, 1)
+
+            # 保存 RGB 图像
+            rgb_image_path = os.path.join(save_dir, 'rgb_image.png')
+            save_image(rgb_image, rgb_image_path)
+
+            # 提取深度图像
+            depth_image = obs['sensor_data']['base_camera']['depth']
+            # 同样，如果有多余维度（如图像数量为 1）则去掉
+            if depth_image.ndim == 4 and depth_image.shape[0] == 1:
+                depth_image = depth_image.squeeze(0)
+            # 去掉深度图像的单通道维度
+            depth_image = depth_image.squeeze(-1)
+            # 将数据类型转换为 float 并归一化到 [0, 1] 范围（假设深度值有一定范围）
+            depth_min = depth_image.min()
+            depth_max = depth_image.max()
+            depth_image = (depth_image - depth_min) / (depth_max - depth_min + 1e-8)
+            depth_image = depth_image.float()
+
+            # 保存深度图像，去掉 cmap 参数
+            depth_image_path = os.path.join(save_dir, 'depth_image.png')
+            save_image(depth_image, depth_image_path)
+
+            print(f"RGB 图像已保存到 {rgb_image_path}")
+            print(f"深度图像已保存到 {depth_image_path}")
         # Add an appropriate delay to avoid excessive CPU usage
-        plt.pause(0.05)
+ 
