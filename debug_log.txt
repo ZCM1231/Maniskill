@@ -1,0 +1,928 @@
+Python executable: /home/zcm/miniconda3/envs/maniskill/bin/python
+Python version:
+Python 3.12.9
+Python path:
+
+/home/zcm/miniconda3/envs/maniskill/lib/python3.12/site-packages
+/home/zcm/lightrobot/ManiSkill
+/home/zcm/.local/share
+/home/packman/packman-common/7.21.1
+/home/zcm/.local/share/ov/pip-packages
+/home/zcm/.local/share/_repo/deps/repo_python_package
+/home/zcm/.local/share/_repo/deps/repo_bench
+/home/zcm/.local/share/_repo/deps/repo_ci
+/home/zcm/.local/share/_repo/deps/repo_build_deps
+/home/zcm/.local/share/_repo/deps/repo_docs
+/home/zcm/.local/share/_repo/deps/repo_format
+/home/zcm/.local/share/_repo/deps/repo_build
+/home/zcm/.local/share/_repo/deps/repo_test
+/home/zcm/.local/share/_repo/deps/repo_licensing
+/home/zcm/.local/share/_repo/deps/repo_changelog
+/home/zcm/.local/share/_repo/deps/repo_codesign
+/home/zcm/.local/share/_repo/deps/repo_usd
+/home/zcm/.local/share/_repo/deps/repo_package
+/home/zcm/.local/share/_repo/deps/repo_kit_tools
+/home/zcm/.local/share/_repo/deps/repo_kit_tools_deps
+/home/zcm/.local/share/_repo/deps/repo_source
+/home/zcm/.local/share/_repo/deps/repo_man_deps
+/home/zcm/.local/share/_repo/deps/repo_man
+/home/zcm/.local/share/_repo/deps/uv_deps
+/home/zcm/.local/share/tools/repoman
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/exts/omni.isaac.compatibility_check
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.core-1.0.2+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.init-0.0.0+10a4b5c0.lx64.r
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.mainwindow-1.0.3+10a4b5c0
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.audio-0.1.0+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.appwindow-1.1.8+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.uiaudio-1.0.0+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pipapi-0.0.0+10a4b5c0
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation.shadercache.vulkan-1.0.0+10a4b5c0.lx64.r
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.stats-1.0.1+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation-0.0.0+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.ui-2.25.22+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.capture-0.0.0+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.telemetry-0.5.0+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.imgui-1.0.1+10a4b5c0.lx64.r.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pip_archive-0.0.0+10a4b5c0.lx64.cp310
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.uiapp-0.0.0+10a4b5c0
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.loop-default-0.2.0+10a4b5c0.lx64.r
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.windowing.plugins-1.0.0+10a4b5c0.lx64.r
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.core-1.0.2+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.init-0.0.0+10a4b5c0.lx64.r/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.mainwindow-1.0.3+10a4b5c0/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.audio-0.1.0+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.appwindow-1.1.8+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.uiaudio-1.0.0+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pipapi-0.0.0+10a4b5c0/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation.shadercache.vulkan-1.0.0+10a4b5c0.lx64.r/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.stats-1.0.1+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation-0.0.0+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.ui-2.25.22+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.capture-0.0.0+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.telemetry-0.5.0+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.imgui-1.0.1+10a4b5c0.lx64.r.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pip_archive-0.0.0+10a4b5c0.lx64.cp310/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.uiapp-0.0.0+10a4b5c0/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.loop-default-0.2.0+10a4b5c0.lx64.r/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.windowing.plugins-1.0.0+10a4b5c0.lx64.r/pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.kit.registry.nucleus
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.assets.plugins
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.kit.async_engine
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.client
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/kernel/py
+/home/zcm/miniconda3/envs/maniskill/lib/python312.zip
+/home/zcm/miniconda3/envs/maniskill/lib/python3.12
+/home/zcm/miniconda3/envs/maniskill/lib/python3.12/lib-dynload
+PYTHONPATH:
+/home/zcm/miniconda3/envs/maniskill/lib/python3.12/site-packages::/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../../../../packman/packman-common/7.21.1:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../../../../packman/packman-common/7.21.1::/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../..:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../pip-packages:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_python_package:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_bench:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_ci:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_build_deps:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_docs:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_format:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_build:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_test:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_licensing:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_changelog:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_codesign:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_usd:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_package:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_kit_tools:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_kit_tools_deps:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_source:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_man_deps:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/repo_man:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../_repo/deps/uv_deps:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/../../../tools/repoman:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/exts/omni.isaac.compatibility_check:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.core-1.0.2+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.init-0.0.0+10a4b5c0.lx64.r:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.mainwindow-1.0.3+10a4b5c0:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.audio-0.1.0+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.appwindow-1.1.8+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.uiaudio-1.0.0+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pipapi-0.0.0+10a4b5c0:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation.shadercache.vulkan-1.0.0+10a4b5c0.lx64.r:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.stats-1.0.1+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation-0.0.0+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.ui-2.25.22+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.capture-0.0.0+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.telemetry-0.5.0+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.imgui-1.0.1+10a4b5c0.lx64.r.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pip_archive-0.0.0+10a4b5c0.lx64.cp310:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.uiapp-0.0.0+10a4b5c0:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.loop-default-0.2.0+10a4b5c0.lx64.r:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.windowing.plugins-1.0.0+10a4b5c0.lx64.r:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.core-1.0.2+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.init-0.0.0+10a4b5c0.lx64.r/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.mainwindow-1.0.3+10a4b5c0/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.audio-0.1.0+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.appwindow-1.1.8+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.uiaudio-1.0.0+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pipapi-0.0.0+10a4b5c0/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation.shadercache.vulkan-1.0.0+10a4b5c0.lx64.r/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.stats-1.0.1+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation-0.0.0+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.ui-2.25.22+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.capture-0.0.0+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.telemetry-0.5.0+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.imgui-1.0.1+10a4b5c0.lx64.r.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pip_archive-0.0.0+10a4b5c0.lx64.cp310/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.uiapp-0.0.0+10a4b5c0/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.loop-default-0.2.0+10a4b5c0.lx64.r/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.windowing.plugins-1.0.0+10a4b5c0.lx64.r/pip_prebundle:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.kit.registry.nucleus:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.assets.plugins:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.kit.async_engine:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.client:/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/kernel/py
+Attempting to import omni.isaac:
+Successfully imported omni.isaac
+Attempting to import numpy:
+NumPy version: 2.2.2
+NumPy location: /home/zcm/miniconda3/envs/maniskill/lib/python3.12/site-packages/numpy/__init__.py
+List of all 'omni' modules:
+omni.appwindow
+omni.stats
+omni.gpu_foundation_factory
+omni.ui
+omni.renderer_capture
+omni.client
+omni.core
+omni.ext
+omni.log
+omni.platforminfo
+omni.schema
+omni.str
+omni.structuredlog
+Detailed sys.path:
+/home/zcm/miniconda3/envs/maniskill/lib/python3.12/site-packages:
+  Bottleneck-1.4.2.dist-info
+  Farama_Notifications-0.0.4.dist-info
+  GitPython-3.1.44.dist-info
+  IPython
+  MarkupSafe-3.0.2.dist-info
+  PIL
+  PyYAML-6.0.2.dist-info
+  README.txt
+  __editable__.mani_skill-3.0.0b18.pth
+  __editable___mani_skill_3_0_0b18_finder.py
+  __pycache__
+  _distutils_hack
+  _yaml
+  absl
+  absl_py-2.1.0.dist-info
+  arm_pytorch_utilities
+  arm_pytorch_utilities-0.4.3.dist-info
+  asttokens
+  asttokens-3.0.0.dist-info
+  bottleneck
+  certifi
+  certifi-2025.1.31.dist-info
+  charset_normalizer
+  charset_normalizer-3.4.1.dist-info
+  cloudpickle
+  cloudpickle-3.1.1.dist-info
+  contourpy
+  contourpy-1.3.1.dist-info
+  cusparselt
+  cv2
+  cycler
+  cycler-0.12.1.dist-info
+  dacite
+  dacite-1.9.2.dist-info
+  dateutil
+  decorator-5.1.1.dist-info
+  decorator.py
+  distutils-precedence.pth
+  docstring_parser
+  docstring_parser-0.16.dist-info
+  example.py
+  executing
+  executing-2.2.0.dist-info
+  farama_notifications
+  fast_kinematics-0.2.2.dist-info
+  fast_kinematics.cpython-312-x86_64-linux-gnu.so
+  filelock
+  filelock-3.17.0.dist-info
+  fontTools
+  fonttools-4.56.0.dist-info
+  fsspec
+  fsspec-2025.2.0.dist-info
+  functorch
+  future
+  future-1.0.0.dist-info
+  git
+  gitdb
+  gitdb-4.0.12.dist-info
+  gymnasium
+  gymnasium-0.29.1.dist-info
+  h5py
+  h5py-3.12.1.dist-info
+  h5py.libs
+  huggingface_hub
+  huggingface_hub-0.28.1.dist-info
+  idna
+  idna-3.10.dist-info
+  imageio
+  imageio-2.37.0.dist-info
+  imageio_ffmpeg
+  imageio_ffmpeg-0.6.0.dist-info
+  importlib_metadata
+  importlib_metadata-8.6.1.dist-info
+  ipython-8.32.0.dist-info
+  iso8601
+  iso8601-2.1.0.dist-info
+  isympy.py
+  jedi
+  jedi-0.19.2.dist-info
+  jinja2
+  jinja2-3.1.5.dist-info
+  kiwisolver
+  kiwisolver-1.4.8.dist-info
+  libfuturize
+  libpasteurize
+  lxml
+  lxml-5.3.1.dist-info
+  mani_skill-3.0.0b18.dist-info
+  markdown_it
+  markdown_it_py-3.0.0.dist-info
+  markupsafe
+  matplotlib
+  matplotlib-3.10.0.dist-info
+  matplotlib_inline
+  matplotlib_inline-0.1.7.dist-info
+  mdurl
+  mdurl-0.1.2.dist-info
+  mkl
+  mkl_fft
+  mkl_fft-1.3.11.dist-info
+  mkl_random
+  mkl_random-1.2.8.dist-info
+  mkl_service-2.4.0-py3.12.egg-info
+  mpl_toolkits
+  mplib
+  mplib-0.1.1.dist-info
+  mplib.libs
+  mpmath
+  mpmath-1.3.0.dist-info
+  networkx
+  networkx-3.4.2.dist-info
+  numexpr
+  numexpr-2.10.1.dist-info
+  numpy
+  numpy-1.26.4.dist-info
+  numpy-2.2.2.dist-info
+  numpy.libs
+  nvidia
+  nvidia_cublas_cu12-12.4.5.8.dist-info
+  nvidia_cuda_cupti_cu12-12.4.127.dist-info
+  nvidia_cuda_nvrtc_cu12-12.4.127.dist-info
+  nvidia_cuda_runtime_cu12-12.4.127.dist-info
+  nvidia_cudnn_cu12-9.1.0.70.dist-info
+  nvidia_cufft_cu12-11.2.1.3.dist-info
+  nvidia_curand_cu12-10.3.5.147.dist-info
+  nvidia_cusolver_cu12-11.6.1.9.dist-info
+  nvidia_cusparse_cu12-12.3.1.170.dist-info
+  nvidia_cusparselt_cu12-0.6.2.dist-info
+  nvidia_ml_py-12.570.86.dist-info
+  nvidia_nccl_cu12-2.21.5.dist-info
+  nvidia_nvjitlink_cu12-12.4.127.dist-info
+  nvidia_nvtx_cu12-12.4.127.dist-info
+  opencv_python-4.11.0.86.dist-info
+  opencv_python.libs
+  packaging
+  packaging-24.2.dist-info
+  pandas
+  pandas-2.2.3.dist-info
+  parso
+  parso-0.8.4.dist-info
+  past
+  pexpect
+  pexpect-4.9.0.dist-info
+  pillow-11.1.0.dist-info
+  pillow.libs
+  pip
+  pip-25.0.dist-info
+  pkg_resources
+  prompt_toolkit
+  prompt_toolkit-3.0.50.dist-info
+  psutil
+  psutil-6.1.1.dist-info
+  ptyprocess
+  ptyprocess-0.7.0.dist-info
+  pure_eval
+  pure_eval-0.2.3.dist-info
+  pygments
+  pygments-2.19.1.dist-info
+  pylab.py
+  pynvml-12.0.0.dist-info
+  pynvml.py
+  pynvml_utils
+  pyparsing
+  pyparsing-3.2.1.dist-info
+  pyperclip
+  pyperclip-1.9.0.dist-info
+  pyserial-3.5.dist-info
+  python_dateutil-2.9.0.post0.dist-info
+  pytorch_kinematics
+  pytorch_kinematics-0.7.4.dist-info
+  pytorch_seed
+  pytorch_seed-0.2.0.dist-info
+  pytz
+  pytz-2021.1.dist-info
+  requests
+  requests-2.32.3.dist-info
+  rich
+  rich-13.9.4.dist-info
+  sapien
+  sapien-3.0.0b1.dist-info
+  sapien.libs
+  scipy
+  scipy-1.15.1.dist-info
+  scipy.libs
+  serial
+  setuptools
+  setuptools-72.1.0-py3.12.egg-info
+  shtab
+  shtab-1.7.1.dist-info
+  six-1.17.0.dist-info
+  six.py
+  smmap
+  smmap-5.0.2.dist-info
+  stack_data
+  stack_data-0.6.3.dist-info
+  sympy
+  sympy-1.13.1.dist-info
+  tabulate
+  tabulate-0.9.0.dist-info
+  toppra
+  toppra-0.6.0.dist-info
+  torch
+  torch-2.6.0.dist-info
+  torchaudio
+  torchaudio-2.6.0.dist-info
+  torchgen
+  torchvision
+  torchvision-0.21.0.dist-info
+  torchvision.libs
+  torio
+  tqdm
+  tqdm-4.67.1.dist-info
+  traitlets
+  traitlets-5.14.3.dist-info
+  transforms3d
+  transforms3d-0.4.2.dist-info
+  trimesh
+  trimesh-4.6.1.dist-info
+  triton
+  triton-3.2.0.dist-info
+  typeguard
+  typeguard-4.4.1.dist-info
+  typing_extensions-4.12.2.dist-info
+  typing_extensions.py
+  tyro
+  tyro-0.9.14.dist-info
+  tzdata
+  tzdata-2023.3.dist-info
+  urllib3
+  urllib3-2.3.0.dist-info
+  wcwidth
+  wcwidth-0.2.13.dist-info
+  wheel
+  wheel-0.45.1.dist-info
+  yaml
+  zipp
+  zipp-3.21.0.dist-info
+/home/zcm/lightrobot/ManiSkill:
+  .git
+  .github
+  .gitignore
+  .pre-commit-config.yaml
+  .readthedocs.yaml
+  CITATION.cff
+  CONTRIBUTING.md
+  IK.py
+  IK_.py
+  IK__.py
+  LICENSE
+  README.md
+  analyze_benchmarks.py
+  benchmark_log.txt
+  benchmark_results
+  benchmark_results.csv
+  benchmark_results_graph.png
+  compare_render_speeds.py
+  compare——render
+  debug_log.txt
+  depth_image.png
+  detailed_comparison.csv
+  docker
+  docs
+  examples
+  figures
+  fps_comparison.png
+  grouped_benchmark_results.csv
+  lerobot
+  mani_skill
+  maniskill
+  psps_comparison.png
+  pyproject.toml
+  pyrightconfig.json
+  qwen.py
+  qwen_demo.py
+  render_speed_results.csv
+  rgb_image.png
+  scripts
+  scservo_sdk
+  setup.py
+  t.py
+  tests
+  vlm.py
+  vlm_so100.py
+/home/zcm/.local/share:
+  Trash
+  applications
+  backgrounds
+  evolution
+  flatpak
+  gnome-settings-daemon
+  gnome-shell
+  grilo-plugins
+  gvfs-metadata
+  ibus-table
+  icc
+  keyrings
+  nano
+  nautilus
+  ov
+  recently-used.xbel
+  rhythmbox
+  session_migration-ubuntu
+  sounds
+  totem
+  tracker
+  webkitgtk
+  xorg
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/exts/omni.isaac.compatibility_check:
+  PACKAGE-LICENSES
+  bin
+  config
+  data
+  docs
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.core-1.0.2+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  data
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.init-0.0.0+10a4b5c0.lx64.r:
+  PACKAGE-LICENSES
+  bin
+  config
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.mainwindow-1.0.3+10a4b5c0:
+  PACKAGE-LICENSES
+  config
+  data
+  docs
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.audio-0.1.0+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.appwindow-1.1.8+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.uiaudio-1.0.0+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pipapi-0.0.0+10a4b5c0:
+  PACKAGE-LICENSES
+  config
+  docs
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation.shadercache.vulkan-1.0.0+10a4b5c0.lx64.r:
+  PACKAGE-LICENSES
+  cache
+  config
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.stats-1.0.1+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.gpu_foundation-0.0.0+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.ui-2.25.22+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  data
+  docs
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.capture-0.0.0+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.telemetry-0.5.0+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  docs
+  omni
+  omni.telemetry.transmitter
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.renderer.imgui-1.0.1+10a4b5c0.lx64.r.cp310:
+  PACKAGE-LICENSES
+  bin
+  config
+  data
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pip_archive-0.0.0+10a4b5c0.lx64.cp310:
+  PACKAGE-LICENSES
+  config
+  omni
+  pip_prebundle
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.uiapp-0.0.0+10a4b5c0:
+  PACKAGE-LICENSES
+  config
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.loop-default-0.2.0+10a4b5c0.lx64.r:
+  PACKAGE-LICENSES
+  bin
+  config
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/carb.windowing.plugins-1.0.0+10a4b5c0.lx64.r:
+  PACKAGE-LICENSES
+  bin
+  config
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/extscache/omni.kit.pip_archive-0.0.0+10a4b5c0.lx64.cp310/pip_prebundle:
+  Jinja2
+  MarkupSafe-2.1.5.dist-info
+  PIL
+  PIP-LICENSES.txt
+  Pillow
+  _cffi_backend.cpython-310-x86_64-linux-gnu.so
+  aiobotocore
+  aiobotocore-2.12.1.dist-info
+  aiodns
+  aiodns-3.1.1.dist-info
+  aiofiles
+  aiofiles-23.2.1.dist-info
+  aiohttp
+  aiohttp-3.9.4.dist-info
+  aioitertools
+  aioitertools-0.11.0.dist-info
+  aiosignal
+  aiosignal-1.3.1.dist-info
+  annotated_types
+  annotated_types-0.7.0.dist-info
+  anyio
+  anyio-4.4.0.dist-info
+  asteval
+  asteval-0.9.32.dist-info
+  async_timeout
+  async_timeout-4.0.3.dist-info
+  attr
+  attrs
+  attrs-23.2.0.dist-info
+  bin
+  botocore
+  botocore-1.34.68.dist-info
+  cchardet
+  cchardet-2.1.7-py3.10.egg-info
+  certifi
+  certifi-2024.7.4.dist-info
+  cffi
+  cffi-1.17.0.dist-info
+  charset_normalizer
+  charset_normalizer-3.3.2.dist-info
+  click
+  click-8.1.7.dist-info
+  coverage
+  coverage-7.4.4.dist-info
+  dateutil
+  exceptiongroup
+  exceptiongroup-1.2.2.dist-info
+  fastapi
+  fastapi-0.110.0.dist-info
+  frozenlist
+  frozenlist-1.4.1.dist-info
+  h11
+  h11-0.14.0.dist-info
+  httptools
+  httptools-0.6.1.dist-info
+  idna
+  idna-3.7.dist-info
+  idna_ssl-1.1.0-py3.10.egg-info
+  idna_ssl.py
+  jinja2
+  jinja2-3.1.4.dist-info
+  jmespath
+  jmespath-1.0.1.dist-info
+  markupsafe
+  multidict
+  multidict-6.0.5.dist-info
+  multipart
+  numpy
+  numpy-1.26.0.dist-info
+  numpy.libs
+  packages_list.txt
+  pillow-10.2.0.dist-info
+  pillow.libs
+  png.py
+  psutil
+  psutil-5.9.8.dist-info
+  pycares
+  pycares-4.3.0.dist-info
+  pycparser
+  pycparser-2.22.dist-info
+  pydantic
+  pydantic-2.8.2.dist-info
+  pydantic_core
+  pydantic_core-2.20.1.dist-info
+  pypng-0.20220715.0.dist-info
+  python_dateutil-2.9.0.post0.dist-info
+  python_multipart-0.0.9.dist-info
+  pytz
+  pytz-2024.1.dist-info
+  qrcode
+  qrcode-7.4.2.dist-info
+  sentry_sdk
+  sentry_sdk-1.43.0.dist-info
+  share
+  six-1.16.0.dist-info
+  six.py
+  sniffio
+  sniffio-1.3.1.dist-info
+  starlette
+  starlette-0.36.3.dist-info
+  toml
+  toml-0.10.2.dist-info
+  typing_extensions-4.11.0.dist-info
+  typing_extensions.py
+  urllib3
+  urllib3-2.2.2.dist-info
+  uvicorn
+  uvicorn-0.29.0.dist-info
+  watchdog
+  watchdog-4.0.0.dist-info
+  websockets
+  websockets-12.0.dist-info
+  wrapt
+  wrapt-1.16.0.dist-info
+  yarl
+  yarl-1.9.4.dist-info
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.kit.registry.nucleus:
+  PACKAGE-LICENSES
+  config
+  docs
+  omni
+  pip_requests
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.assets.plugins:
+  PACKAGE-LICENSES
+  bin
+  config
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.kit.async_engine:
+  PACKAGE-LICENSES
+  config
+  docs
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/extscore/omni.client:
+  PACKAGE-LICENSES
+  bin
+  config
+  docs
+  omni
+/home/zcm/.local/share/ov/pkg/isaac-sim-comp-check-4.2.0/kit/kernel/py:
+  carb
+  omni
+/home/zcm/miniconda3/envs/maniskill/lib/python3.12:
+  LICENSE.txt
+  __future__.py
+  __hello__.py
+  __phello__
+  __pycache__
+  _aix_support.py
+  _collections_abc.py
+  _compat_pickle.py
+  _compression.py
+  _markupbase.py
+  _osx_support.py
+  _py_abc.py
+  _pydatetime.py
+  _pydecimal.py
+  _pyio.py
+  _pylong.py
+  _sitebuiltins.py
+  _strptime.py
+  _sysconfigdata__linux_x86_64-linux-gnu.py
+  _sysconfigdata__linux_x86_64-linux-gnu.py.orig
+  _sysconfigdata_x86_64_conda_cos6_linux_gnu.py
+  _sysconfigdata_x86_64_conda_linux_gnu.py
+  _threading_local.py
+  _weakrefset.py
+  abc.py
+  aifc.py
+  antigravity.py
+  argparse.py
+  ast.py
+  asyncio
+  base64.py
+  bdb.py
+  bisect.py
+  bz2.py
+  cProfile.py
+  calendar.py
+  cgi.py
+  cgitb.py
+  chunk.py
+  cmd.py
+  code.py
+  codecs.py
+  codeop.py
+  collections
+  colorsys.py
+  compileall.py
+  concurrent
+  config-3.12-x86_64-linux-gnu
+  configparser.py
+  contextlib.py
+  contextvars.py
+  copy.py
+  copyreg.py
+  crypt.py
+  csv.py
+  ctypes
+  curses
+  dataclasses.py
+  datetime.py
+  dbm
+  decimal.py
+  difflib.py
+  dis.py
+  doctest.py
+  email
+  encodings
+  ensurepip
+  enum.py
+  filecmp.py
+  fileinput.py
+  fnmatch.py
+  fractions.py
+  ftplib.py
+  functools.py
+  genericpath.py
+  getopt.py
+  getpass.py
+  gettext.py
+  glob.py
+  graphlib.py
+  gzip.py
+  hashlib.py
+  heapq.py
+  hmac.py
+  html
+  http
+  idlelib
+  imaplib.py
+  imghdr.py
+  importlib
+  inspect.py
+  io.py
+  ipaddress.py
+  json
+  keyword.py
+  lib-dynload
+  lib2to3
+  linecache.py
+  locale.py
+  logging
+  lzma.py
+  mailbox.py
+  mailcap.py
+  mimetypes.py
+  modulefinder.py
+  multiprocessing
+  netrc.py
+  nntplib.py
+  ntpath.py
+  nturl2path.py
+  numbers.py
+  opcode.py
+  operator.py
+  optparse.py
+  os.py
+  pathlib.py
+  pdb.py
+  pickle.py
+  pickletools.py
+  pipes.py
+  pkgutil.py
+  platform.py
+  plistlib.py
+  poplib.py
+  posixpath.py
+  pprint.py
+  profile.py
+  pstats.py
+  pty.py
+  py_compile.py
+  pyclbr.py
+  pydoc.py
+  pydoc_data
+  queue.py
+  quopri.py
+  random.py
+  re
+  reprlib.py
+  rlcompleter.py
+  runpy.py
+  sched.py
+  secrets.py
+  selectors.py
+  shelve.py
+  shlex.py
+  shutil.py
+  signal.py
+  site-packages
+  site.py
+  smtplib.py
+  sndhdr.py
+  socket.py
+  socketserver.py
+  sqlite3
+  sre_compile.py
+  sre_constants.py
+  sre_parse.py
+  ssl.py
+  stat.py
+  statistics.py
+  string.py
+  stringprep.py
+  struct.py
+  subprocess.py
+  sunau.py
+  symtable.py
+  sysconfig.py
+  tabnanny.py
+  tarfile.py
+  telnetlib.py
+  tempfile.py
+  test
+  textwrap.py
+  this.py
+  threading.py
+  timeit.py
+  tkinter
+  token.py
+  tokenize.py
+  tomllib
+  trace.py
+  traceback.py
+  tracemalloc.py
+  tty.py
+  turtle.py
+  turtledemo
+  types.py
+  typing.py
+  unittest
+  urllib
+  uu.py
+  uuid.py
+  venv
+  warnings.py
+  wave.py
+  weakref.py
+  webbrowser.py
+  wsgiref
+  xdrlib.py
+  xml
+  xmlrpc
+  zipapp.py
+  zipfile
+  zipimport.py
+  zoneinfo
+/home/zcm/miniconda3/envs/maniskill/lib/python3.12/lib-dynload:
+  _asyncio.cpython-312-x86_64-linux-gnu.so
+  _bisect.cpython-312-x86_64-linux-gnu.so
+  _blake2.cpython-312-x86_64-linux-gnu.so
+  _bz2.cpython-312-x86_64-linux-gnu.so
+  _codecs_cn.cpython-312-x86_64-linux-gnu.so
+  _codecs_hk.cpython-312-x86_64-linux-gnu.so
+  _codecs_iso2022.cpython-312-x86_64-linux-gnu.so
+  _codecs_jp.cpython-312-x86_64-linux-gnu.so
+  _codecs_kr.cpython-312-x86_64-linux-gnu.so
+  _codecs_tw.cpython-312-x86_64-linux-gnu.so
+  _contextvars.cpython-312-x86_64-linux-gnu.so
+  _crypt.cpython-312-x86_64-linux-gnu.so
+  _csv.cpython-312-x86_64-linux-gnu.so
+  _ctypes.cpython-312-x86_64-linux-gnu.so
+  _ctypes_test.cpython-312-x86_64-linux-gnu.so
+  _curses.cpython-312-x86_64-linux-gnu.so
+  _curses_panel.cpython-312-x86_64-linux-gnu.so
+  _datetime.cpython-312-x86_64-linux-gnu.so
+  _decimal.cpython-312-x86_64-linux-gnu.so
+  _elementtree.cpython-312-x86_64-linux-gnu.so
+  _hashlib.cpython-312-x86_64-linux-gnu.so
+  _heapq.cpython-312-x86_64-linux-gnu.so
+  _json.cpython-312-x86_64-linux-gnu.so
+  _lsprof.cpython-312-x86_64-linux-gnu.so
+  _lzma.cpython-312-x86_64-linux-gnu.so
+  _md5.cpython-312-x86_64-linux-gnu.so
+  _multibytecodec.cpython-312-x86_64-linux-gnu.so
+  _multiprocessing.cpython-312-x86_64-linux-gnu.so
+  _opcode.cpython-312-x86_64-linux-gnu.so
+  _pickle.cpython-312-x86_64-linux-gnu.so
+  _posixshmem.cpython-312-x86_64-linux-gnu.so
+  _posixsubprocess.cpython-312-x86_64-linux-gnu.so
+  _queue.cpython-312-x86_64-linux-gnu.so
+  _random.cpython-312-x86_64-linux-gnu.so
+  _sha1.cpython-312-x86_64-linux-gnu.so
+  _sha2.cpython-312-x86_64-linux-gnu.so
+  _sha3.cpython-312-x86_64-linux-gnu.so
+  _socket.cpython-312-x86_64-linux-gnu.so
+  _sqlite3.cpython-312-x86_64-linux-gnu.so
+  _ssl.cpython-312-x86_64-linux-gnu.so
+  _statistics.cpython-312-x86_64-linux-gnu.so
+  _struct.cpython-312-x86_64-linux-gnu.so
+  _testbuffer.cpython-312-x86_64-linux-gnu.so
+  _testcapi.cpython-312-x86_64-linux-gnu.so
+  _testclinic.cpython-312-x86_64-linux-gnu.so
+  _testimportmultiple.cpython-312-x86_64-linux-gnu.so
+  _testinternalcapi.cpython-312-x86_64-linux-gnu.so
+  _testmultiphase.cpython-312-x86_64-linux-gnu.so
+  _testsinglephase.cpython-312-x86_64-linux-gnu.so
+  _tkinter.cpython-312-x86_64-linux-gnu.so
+  _uuid.cpython-312-x86_64-linux-gnu.so
+  _xxinterpchannels.cpython-312-x86_64-linux-gnu.so
+  _xxsubinterpreters.cpython-312-x86_64-linux-gnu.so
+  _xxtestfuzz.cpython-312-x86_64-linux-gnu.so
+  _zoneinfo.cpython-312-x86_64-linux-gnu.so
+  array.cpython-312-x86_64-linux-gnu.so
+  audioop.cpython-312-x86_64-linux-gnu.so
+  binascii.cpython-312-x86_64-linux-gnu.so
+  cmath.cpython-312-x86_64-linux-gnu.so
+  fcntl.cpython-312-x86_64-linux-gnu.so
+  grp.cpython-312-x86_64-linux-gnu.so
+  math.cpython-312-x86_64-linux-gnu.so
+  mmap.cpython-312-x86_64-linux-gnu.so
+  nis.cpython-312-x86_64-linux-gnu.so
+  ossaudiodev.cpython-312-x86_64-linux-gnu.so
+  pyexpat.cpython-312-x86_64-linux-gnu.so
+  readline.cpython-312-x86_64-linux-gnu.so
+  resource.cpython-312-x86_64-linux-gnu.so
+  select.cpython-312-x86_64-linux-gnu.so
+  spwd.cpython-312-x86_64-linux-gnu.so
+  syslog.cpython-312-x86_64-linux-gnu.so
+  termios.cpython-312-x86_64-linux-gnu.so
+  unicodedata.cpython-312-x86_64-linux-gnu.so
+  xxlimited.cpython-312-x86_64-linux-gnu.so
+  xxlimited_35.cpython-312-x86_64-linux-gnu.so
+  xxsubtype.cpython-312-x86_64-linux-gnu.so
+  zlib.cpython-312-x86_64-linux-gnu.so

@@ -83,7 +83,7 @@ def Jacobian(theta):
     return J
 
 # 逆运动学函数
-def IK(desired_T, initial_theta, max_iterations=1000, tolerance=1e-6):
+def IK(desired_T, initial_theta, max_iterations=1000, tolerance=1e-2):
     theta = np.array(initial_theta, dtype=float)
     lambda_identity = 0.01  # 阻尼系数
 
@@ -133,37 +133,6 @@ def IK(desired_T, initial_theta, max_iterations=1000, tolerance=1e-6):
     print("Reached the maximum number of iterations, did not fully converge.")
     return theta
 
-def plot_robot(theta):
-    """绘制机器人当前构型"""
-    ax.cla()
-    T = np.eye(4)
-    x_points = [0]
-    y_points = [0]
-    z_points = [0]
-
-    for i in range(7):
-        T_i = T_matrix(dh_params[i]['a'], dh_params[i]['d'], dh_params[i]['alpha'], theta[i])
-        T = T @ T_i
-        x_points.append(T[0,3])
-        y_points.append(T[1,3])
-        z_points.append(T[2,3])
-
-    # 添加末端执行器位置
-    T_end = T.copy()
-    T_end[0:3, 3] += T[0:3, 0:3] @ tcp_offset
-    x_points.append(T_end[0,3])
-    y_points.append(T_end[1,3])
-    z_points.append(T_end[2,3])
-
-    ax.plot(x_points, y_points, z_points, '-o', markersize=5)
-    ax.set_xlim([-0.5, 0.5])
-    ax.set_ylim([-0.5, 0.5])
-    ax.set_zlim([0, 1.0])
-    ax.set_xlabel("X")
-    ax.set_ylabel("Y")
-    ax.set_zlabel("Z")
-    plt.draw()
-    plt.pause(0.001)
 
 # if __name__ == "__main__":
 #     # 创建图形窗口
@@ -206,16 +175,18 @@ current_T, _, _ = FK(initial_theta)
 np.random.seed(1)
 
 desired_T = current_T.copy()
-desired_T[0:3, 3] += np.array([0, 0, 0.00])  # 移动末端执行器
+desired_T[0:3, 3] += np.array([0, 0, 0])  # 移动末端执行器
+action = np.zeros(8)
 while not done:
     # desired_T = current_T.copy()
     # print(f'{desired_T}dessssireeee_old')
     # desired_T[0:3, 3] += np.array([0.001, 0., 0.])  # 移动末端执行器
     # print(f'{desired_T}dessssireeee_new')
     solution_theta = IK(desired_T, current_theta)
+    current_theta=solution_theta
     if solution_theta is not None:
         # 构造完整的动作向量：7个关节角度 + 1个夹持器控制值
-        action = np.zeros(8)
+        
         action[:7] =solution_theta   # 前7个值为关节角度
         action[7] = 0.5  # 第8个值为夹持器控制
         action = np.array(action)

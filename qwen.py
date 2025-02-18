@@ -39,9 +39,9 @@ resized_image = image.resize(new_size, Image.BICUBIC)
 model_path = "/home/zcm/qwen_3B"
 # 更新消息列表
 messages = [
-    [{"role": "user", "content": [{"type": "image", "image": resized_image}, {"type": "text", "text": "假设你是图中的白色机械臂，要去夹取红色方块，你的输出只能是'x、y、z'以及‘+、-'这样3*2的组合,现在你想输出什么？例如x+或者y-;与此同时你还要告诉我方块对于你的方向是左呢还右"}]}]
+    [{"role": "user", "content": [{"type": "image", "image": resized_image}, {"type": "text", "text": "where is the cube ? Suppose you are the white 6DOF robot arm with griper in the picture, and the view Angle of the picture is top-down. Your task is to pick up the block and lift it 10cm high, and the side length of the block is 2cm. Each time you perform an action, you are only allowed to move 0.1cm up, down, left, right ,back, and forth in one direction"}]}]
 ]
-
+# Suppose you are the white 6DOF robot arm with claws in the picture, and the view Angle of the picture is top-down. Your task is to pick up the block and lift it 10cm high, and the side length of the block is 2cm. Each time you perform an action, you are only allowed to move 0.1cm up, down, left, right ,back, and forth in one direction
 processor = AutoProcessor.from_pretrained(model_path)
 model = Qwen2_5_VLForConditionalGeneration.from_pretrained(model_path, torch_dtype=torch.float16, device_map="auto")
 model.gradient_checkpointing_enable()  # 启用梯度检查点
@@ -56,7 +56,7 @@ device = next(model.parameters()).device
 inputs = {k: v.to(device) for k, v in inputs.items()}
 
 # 调整生成参数
-generated_ids = model.generate(**inputs, max_length=512)
+generated_ids = model.generate(**inputs, max_length=2048)
 print(generated_ids)
 
 # 解码生成的 ID 为文本

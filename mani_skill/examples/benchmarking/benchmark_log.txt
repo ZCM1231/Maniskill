@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/zcm/lightrobot/ManiSkill/mani_skill/examples/benchmarking/isaac_lab_gpu_sim.py", line 5, in <module>
+    from omni.isaac.lab.app import AppLauncher
+ModuleNotFoundError: No module named 'omni.isaac.lab'
