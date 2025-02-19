@@ -53,7 +53,6 @@ class PickCubeSO100Env_v(BaseEnv):
         return super().reset(*args, **kwargs)
 
 
-
     @property
     def _default_human_render_camera_configs(self):
         pose = sapien_utils.look_at(eye=[-0.6, .2, 0.5], target=[-0.35, 0.2, 0])

@@ -41,17 +41,17 @@ class PickCubeEnv(BaseEnv):
     cube_half_size = 0.02
     goal_thresh = 0.025
 
-    def __init__(self, *args, robot_uids="panda", robot_init_qpos_noise=0.02, **kwargs):
+    def __init__(self, *args, robot_uids="panda", robot_init_qpos_noise=0.02, cube_position=None, cube_rotation=None, **kwargs):
         self.robot_init_qpos_noise = robot_init_qpos_noise
+        self.cube_position = cube_position
+        self.cube_rotation = cube_rotation
         super().__init__(*args, robot_uids=robot_uids, **kwargs)
 
+  
     @property
     def _default_sensor_configs(self):
-        pose = sapien_utils.look_at(eye=[-0.6, 0, 0.3], target=[-0.35, 0, 0])
-        pose2 = sapien_utils.look_at([-0.1, 0.0, 0.3], [-0.35, 0.0, 0])
-        pose3 = sapien_utils.look_at([-0.35,-0.2, 0.2], [-0.35, 0.3, 0])
-        
-        return [CameraConfig("c_camera", pose3, 512, 512, 1, 0.01, 100),CameraConfig("cube_camera", pose2, 512, 512, 1, 0.01, 100),CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
+        pose = sapien_utils.look_at(eye=[0.55, .2, 0.4], target=[-0.35, 0.2, 0])
+        return [CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
     
     @property
     def _default_human_render_camera_configs(self):
@@ -66,7 +66,7 @@ class PickCubeEnv(BaseEnv):
             self, robot_init_qpos_noise=self.robot_init_qpos_noise
         )
         self.table_scene.build()
-        self.cube = actors.build_cube(
+        self.cube = actors.build_colorful_cube(
             self.scene,
             half_size=self.cube_half_size,
             color=[1, 0, 0, 1],
@@ -76,7 +76,7 @@ class PickCubeEnv(BaseEnv):
         self.goal_site = actors.build_sphere(
             self.scene,
             radius=self.goal_thresh,
-            color=[0, 1, 0, 1],
+            color=[0, 0, 0, 0],
             name="goal_site",
             body_type="kinematic",
             add_collision=False,
@@ -85,20 +85,40 @@ class PickCubeEnv(BaseEnv):
         self._hidden_objects.append(self.goal_site)
 
     def _initialize_episode(self, env_idx: torch.Tensor, options: dict):
-        with torch.device(self.device):
-            b = len(env_idx)
-            self.table_scene.initialize(env_idx)
-            xyz = torch.zeros((b, 3))
-            xyz[:, :2] = torch.rand((b, 2)) * 0.2 - 0.1
-            xyz[:, 2] = self.cube_half_size
-            qs = randomization.random_quaternions(b, lock_x=True, lock_y=True)
-            self.cube.set_pose(Pose.create_from_pq(xyz, qs))
+            with torch.device(self.device):
+                b = len(env_idx)
+                self.table_scene.initialize(env_idx)
+                xyz = torch.zeros((b, 3))
 
-            goal_xyz = torch.zeros((b, 3))
-            goal_xyz[:, :2] = torch.rand((b, 2)) * 0.2 - 0.1
-            goal_xyz[:, 2] = torch.rand((b)) * 0.3 + xyz[:, 2]
-            self.goal_site.set_pose(Pose.create_from_pq(goal_xyz))
+                # 如果传入了 cube_position 参数，则使用该参数设置位置
+                if self.cube_position is not None:
+                    # 确保传入的位置是二维的（x, y）
+                    if len(self.cube_position) == 2:
+                        xyz[:, :2] = torch.tensor(self.cube_position).repeat(b, 1)
+                    else:
+                        raise ValueError("cube_position should be a 2D list or tuple (x, y).")
+                else:
+                    # 若未传入 cube_position 参数，则使用随机位置
+                    xyz[:, :2] = torch.rand((b, 2)) * 0.2 - 0.1
 
+                xyz[:, 2] = self.cube_half_size
+
+                # 如果传入了 cube_rotation 参数，则使用该参数设置姿态
+                if self.cube_rotation is not None:
+                    if len(self.cube_rotation) == 4:
+                        qs = torch.tensor(self.cube_rotation).repeat(b, 1)
+                    else:
+                        raise ValueError("cube_rotation should be a 4D list or tuple representing a quaternion [w, x, y, z].")
+                else:
+                    # 若未传入 cube_rotation 参数，则使用随机姿态
+                    qs = randomization.random_quaternions(b, lock_x=True, lock_y=True)
+
+                self.cube.set_pose(Pose.create_from_pq(xyz, qs))
+
+                goal_xyz = torch.zeros((b, 3))
+                goal_xyz[:, :2] = torch.rand((b, 2)) * 0.2 - 0.1
+                goal_xyz[:, 2] = torch.rand((b)) * 0.3 + xyz[:, 2]
+                self.goal_site.set_pose(Pose.create_from_pq(goal_xyz))
     def _get_obs_extra(self, info: Dict):
         # in reality some people hack is_grasped into observations by checking if the gripper can close fully or not
         obs = dict(

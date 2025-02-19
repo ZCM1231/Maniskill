@@ -473,7 +473,7 @@ env = gym.make(
     control_mode="pd_joint_pos", # there is also "pd_joint_delta_pos", ...
     sensor_configs=dict(shader_pack="rt"),  # 为所有传感器相机设置"rt"着色器包
     render_mode="human",
-    cube_position=[-0.45, 0.4],
+    cube_position=[-0.45, 0.2],
     cube_rotation=[1, 0, 0, 0]
 )
 print("Observation space", env.observation_space)
