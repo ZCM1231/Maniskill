@@ -3,7 +3,7 @@ from typing import Any, Dict, Union
 import numpy as np
 import sapien
 import torch
-
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 import mani_skill.envs.utils.randomization as randomization
 from mani_skill.agents.robots import Fetch, Panda, XArm6Robotiq
 from mani_skill.envs.sapien_env import BaseEnv
@@ -41,16 +41,17 @@ class PickCubeEnv(BaseEnv):
     cube_half_size = 0.02
     goal_thresh = 0.025
 
-    def __init__(self, *args, robot_uids="panda", robot_init_qpos_noise=0.02, cube_position=None, cube_rotation=None, **kwargs):
+    def __init__(self, *args, robot_uids="panda", robot_init_qpos_noise=0.02, cube_position=None, cube_rotation=None,robot_init_qpos=None, **kwargs):
         self.robot_init_qpos_noise = robot_init_qpos_noise
         self.cube_position = cube_position
         self.cube_rotation = cube_rotation
+        self.robot_init_qpos=robot_init_qpos
         super().__init__(*args, robot_uids=robot_uids, **kwargs)
 
   
     @property
     def _default_sensor_configs(self):
-        pose = sapien_utils.look_at(eye=[0.55, .2, 0.4], target=[-0.35, 0.2, 0])
+        pose = sapien_utils.look_at(eye=[0.55, 0., 0.6], target=[-0.35, 0., 0])
         return [CameraConfig("base_camera", pose, 480, 640, np.pi / 2, 0.01, 100)]
     
     @property
@@ -119,6 +120,10 @@ class PickCubeEnv(BaseEnv):
                 goal_xyz[:, :2] = torch.rand((b, 2)) * 0.2 - 0.1
                 goal_xyz[:, 2] = torch.rand((b)) * 0.3 + xyz[:, 2]
                 self.goal_site.set_pose(Pose.create_from_pq(goal_xyz))
+
+                if self.robot_init_qpos is not None:
+                  self.agent.robot.set_qpos(self.robot_init_qpos)
+
     def _get_obs_extra(self, info: Dict):
         # in reality some people hack is_grasped into observations by checking if the gripper can close fully or not
         obs = dict(
