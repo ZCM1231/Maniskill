@@ -48,7 +48,7 @@ obs, _ = env.reset(seed=0)
 done = False
 
 # 定义位置增量，这里简单示例，每次沿 x 轴正向移动 0.01
-delta_pos = np.array([0, 0, 0.1])
+delta_pos = np.array([0, 0, 0])
 
 # 控制抓取的维度，0 表示不抓取，1 表示抓取，这里先设为 0
 gripper_action = np.array([1])

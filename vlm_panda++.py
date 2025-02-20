@@ -114,7 +114,10 @@ while not done:
     resized_image = image.resize(new_size, Image.BICUBIC)
 
     messages = [
-    [{"role": "user", "content": [{"type": "image", "image": gripper_image},{"type": "text", "text": "this is how the gripper looks like,you should take middle of it as the position of gripper"},{"type": "text", "text": "You're at a wooden table, and across from you is a robotic arm and a cube. where the cube is relative to the arm gripper, left or right?"}, {"type": "image", "image": resized_image}]}]
+    [{"role": "user", "content": [{"type": "image", "image": gripper_image},
+                                  {"type": "text", "text": "this is how the gripper looks like,you should take middle of it as the position of gripper"},
+                                  {"type": "text", "text": "You're at a wooden table, and across from you is a robotic arm and a cube. where the cube is relative to the arm gripper, left or right?"},
+                                    {"type": "image", "image": resized_image}]}]
     ]
     processor = AutoProcessor.from_pretrained(model_path)
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(model_path, torch_dtype=torch.float16, device_map="auto")

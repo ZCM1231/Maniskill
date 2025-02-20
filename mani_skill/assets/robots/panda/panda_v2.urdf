@@ -219,6 +219,9 @@
       <geometry>
         <mesh filename="franka_description/meshes/visual/hand.glb"/>
       </geometry>
+      <material name="blue">
+                <color rgba="0 0 1 1"/>
+      </material>
     </visual>
     <collision>
       <geometry>
